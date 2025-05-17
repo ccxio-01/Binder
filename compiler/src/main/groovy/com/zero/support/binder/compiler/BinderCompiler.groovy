@@ -25,7 +25,7 @@ class BinderCompiler implements Plugin<Project> {
                         it.outputs.files.each { File file ->
                             GenerateBuildConfig config = t;
                             RuntimeGenerator generator = new RuntimeGenerator();
-                            generator.generateDefault(config.buildConfigPackageName.get(), file)
+                            generator.generateDefault(config.namespace.get(), file)
                         }
                     }
                 }

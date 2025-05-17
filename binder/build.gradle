@@ -7,6 +7,8 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
+    namespace 'com.zero.support.binder'
+
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 30
