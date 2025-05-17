@@ -7,7 +7,7 @@ plugins {
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
-
+    namespace 'com.zero.support.sample'
     defaultConfig {
         applicationId "com.zero.support.sample"
         minSdkVersion 16
