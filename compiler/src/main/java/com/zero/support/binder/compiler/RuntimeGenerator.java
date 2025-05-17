@@ -1,7 +1,6 @@
 package com.zero.support.binder.compiler;
 
-import org.apache.commons.io.FileUtils;
-
+import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
 
@@ -34,8 +33,9 @@ public class RuntimeGenerator {
     private void generate(String name, String content, String pkg, File dir) {
         File target = new File(dir, pkg.replace(".", "/") + "/binder/" + name + ".java");
         try {
-
-            FileUtils.writeStringToFile(target, content.replace(Constant.PACKAGE_NAME, pkg));
+            FileWriter writer = new FileWriter(target);
+            writer.write(content.replace(Constant.PACKAGE_NAME, pkg));
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
