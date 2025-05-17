@@ -1,7 +1,29 @@
 apply plugin: 'java'
 apply plugin: 'groovy'
-apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.zero615'
+apply plugin: 'maven-publish'
+
+
+android {
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+}
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.zero615' // 替换为你的 group ID，例如 com.github.你的用户名
+                artifactId = 'compiler' // 替换为你的模块名
+                version = '2.0.0' // 替换为你的版本号
+            }
+        }
+    }
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation gradleApi()

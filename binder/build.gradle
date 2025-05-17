@@ -1,8 +1,8 @@
 plugins {
     id 'com.android.library'
 }
-apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.zero615'
+apply plugin: 'maven-publish'
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -28,6 +28,25 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+}
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.zero615' // 替换为你的 group ID，例如 com.github.你的用户名
+                artifactId = 'binder' // 替换为你的模块名
+                version = '2.0.0' // 替换为你的版本号
+            }
+        }
     }
 }
 
