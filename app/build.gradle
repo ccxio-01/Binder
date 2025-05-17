@@ -5,13 +5,13 @@ plugins {
 //apply plugin: 'SdkBinder'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion 33
+
     namespace 'com.zero.support.sample'
     defaultConfig {
         applicationId "com.zero.support.sample"
         minSdkVersion 16
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 
