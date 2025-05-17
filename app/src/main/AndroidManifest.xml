@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Support">
 
-        <activity android:name=".DebugActivity">
+        <activity android:name=".DebugActivity"
+            android:exported="true">
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
